@@ -1,0 +1,84 @@
+'use client';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
+import React, { useRef } from 'react';
+import frontImg from '@/assets/image/serious-indian-professional-business-man-office-portrait-serious-young-ambitious-indian-businessman-project-leader-dressed-367980912.webp'
+
+const HeroV2 = () => {
+    const ref = useRef<HTMLDivElement>(null);
+    const { scrollY, scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"],
+    });
+    const y = useTransform(scrollY, [0, 500], [0, 700]);
+    const x = useTransform(scrollY, [0, 500], [0, 500]);
+    const rotate = useTransform(scrollYProgress, [0, 500], [0, -180]);
+    return (
+        <section
+            ref={ref}
+            className='max-w-[1320px] mx-auto h-[100vh] flex items-center gap-x-5 justify-center py-40'>
+            <motion.div
+                initial={{ x: '-100%', opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: 'easeInOut' }}
+
+            >
+                <motion.h2
+                    className="text-3xl uppercase text-white font-semibold"
+                >
+                    Nazrul Islam Raihan
+                </motion.h2>
+                <h2 className='text-7xl font-bold uppercase text-white'>digital
+                </h2>
+            </motion.div>
+
+            <div className='relative w-[350px] h-[480px] perspective-1500'>
+                <motion.div
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={{ y: 0, x: 0, opacity: 1 }}
+                    // transition={{ duration: 0.8, ease: 'easeInOut' }}
+                    transition={{ type: "spring", stiffness: 80, damping: 20 }}
+
+                    style={{ y, x, rotate, transformStyle: 'preserve-3d', }}
+                    className='relative w-full h-full'>
+                    <div className="absolute inset-0 backface-hidden">
+                        <Image
+                            src={frontImg}
+                            alt="Front Page"
+                            fill
+                            className="object-cover rounded-2xl"
+                        />
+                    </div>
+
+                    {/* === Back Page === */}
+                    <div
+                        className="absolute inset-0 backface-hidden"
+                        style={{
+                            transform: "rotateY(180deg)",
+                        }}
+                    >
+                        <Image
+                            src={frontImg}
+                            alt="Back Page"
+                            fill
+                            className="object-cover rounded-2xl"
+                        />
+                    </div>
+                </motion.div>
+            </div>
+            <motion.div
+                initial={{ x: '100%', opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: 'easeInOut' }}
+            >
+                <h2 className='text-7xl text-white font-bold uppercase'>designer
+                </h2>
+                <p className='text-end text-2xl  text-white '>
+                    Senior UI UX Designer - Lead, Web & <br /> Mobile App Design Specialist
+                </p>
+            </motion.div>
+        </section >
+    );
+};
+
+export default HeroV2;

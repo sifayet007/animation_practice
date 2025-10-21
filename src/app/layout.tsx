@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/Header";
+import Navbar from "@/components/layout/Navbar";
+import CustomCursorV2 from "@/components/shared/CustomCursorV2";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <CustomCursorV2 />
+        {/* <Header /> */}
+        <Navbar />
         {children}
       </body>
     </html>
