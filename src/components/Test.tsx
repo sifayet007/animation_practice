@@ -15,11 +15,7 @@ const HeroV3 = () => {
 
     // rotateY for book flip motion
     const rotateY = useTransform(scrollYProgress, [0, 1], [0, -180]);
-    const shadow = useTransform(
-        scrollYProgress,
-        [0, 0.5, 1],
-        ["rgba(0,0,0,0.2)", "rgba(0,0,0,0.4)", "rgba(0,0,0,0.1)"]
-    );
+
 
     return (
         <section
@@ -31,7 +27,7 @@ const HeroV3 = () => {
                     style={{
                         rotateY,
                         transformStyle: "preserve-3d",
-                        boxShadow: shadow,
+                        backfaceVisibility: "hidden",
                     }}
                     transition={{ type: "spring", stiffness: 80, damping: 20 }}
                     className="relative w-full h-full"

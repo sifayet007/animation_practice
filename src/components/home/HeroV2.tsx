@@ -10,9 +10,9 @@ const HeroV2 = () => {
         target: ref,
         offset: ["start end", "end start"],
     });
-    const y = useTransform(scrollY, [0, 500], [0, 700]);
-    const x = useTransform(scrollY, [0, 500], [0, 500]);
-    const rotate = useTransform(scrollYProgress, [0, 500], [0, -180]);
+    const y = useTransform(scrollY, [0, 750], [0, 700]);
+    const x = useTransform(scrollY, [0, 750], [0, 500]);
+    const rotate = useTransform(scrollYProgress, [0, 750], [0, -360]);
     return (
         <section
             ref={ref}
@@ -32,7 +32,7 @@ const HeroV2 = () => {
                 </h2>
             </motion.div>
 
-            <div className='relative w-[350px] h-[480px] perspective-1500'>
+            <div className='relative w-[350px] h-[480px] perspective-distant'>
                 <motion.div
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, x: 0, opacity: 1 }}
