@@ -2,7 +2,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import React, { useRef } from 'react';
-import frontImg from '@/assets/image/serious-indian-professional-business-man-office-portrait-serious-young-ambitious-indian-businessman-project-leader-dressed-367980912.webp'
+import frontImg from '@/assets/image/serious-indian-professional-business-man-office-portrait-serious-young-ambitious-indian-businessman-project-leader-dressed-367980912.webp';
 
 const HeroV2 = () => {
     const ref = useRef<HTMLDivElement>(null);
@@ -10,37 +10,42 @@ const HeroV2 = () => {
         target: ref,
         offset: ["start end", "end start"],
     });
-    const y = useTransform(scrollY, [0, 750], [0, 700]);
-    const x = useTransform(scrollY, [0, 750], [0, 500]);
-    const rotate = useTransform(scrollYProgress, [0, 750], [0, -360]);
+
+    const y = useTransform(scrollY, [0, 700], [0, 700]);
+    const x = useTransform(scrollY, [0, 700], [0, 500]);
+    const rotateY = useTransform(scrollYProgress, [0, 1], [0, 360]);
+
     return (
         <section
             ref={ref}
             className='max-w-[1320px] mx-auto h-[100vh] flex items-center gap-x-5 justify-center py-40'>
+
+            {/* Left Text */}
             <motion.div
                 initial={{ x: '-100%', opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease: 'easeInOut' }}
-
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
             >
-                <motion.h2
-                    className="text-3xl uppercase text-white font-semibold"
-                >
+                <motion.h2 className="text-3xl uppercase text-white font-semibold">
                     Nazrul Islam Raihan
                 </motion.h2>
-                <h2 className='text-7xl font-bold uppercase text-white'>digital
-                </h2>
+                <h2 className='text-7xl font-bold uppercase text-white'>digital</h2>
             </motion.div>
 
-            <div className='relative w-[350px] h-[480px] perspective-distant'>
+            {/* Smooth Flip Image */}
+            <div className='relative w-[350px] h-[480px]' style={{ perspective: 1200 }}>
                 <motion.div
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, x: 0, opacity: 1 }}
-                    // transition={{ duration: 0.8, ease: 'easeInOut' }}
-                    transition={{ type: "spring", stiffness: 80, damping: 20 }}
-
-                    style={{ y, x, rotate, transformStyle: 'preserve-3d', }}
-                    className='relative w-full h-full'>
+                    style={{
+                        y,
+                        x,
+                        rotateY,
+                        transformStyle: 'preserve-3d',
+                        backfaceVisibility: 'hidden',
+                    }}
+                    transition={{ type: "spring", stiffness: 40, damping: 30 }}
+                    className='relative w-full h-full'
+                >
+                    {/* Front */}
                     <div className="absolute inset-0 backface-hidden">
                         <Image
                             src={frontImg}
@@ -50,12 +55,10 @@ const HeroV2 = () => {
                         />
                     </div>
 
-                    {/* === Back Page === */}
+                    {/* Back */}
                     <div
                         className="absolute inset-0 backface-hidden"
-                        style={{
-                            transform: "rotateY(180deg)",
-                        }}
+                        style={{ transform: "rotateY(180deg)" }}
                     >
                         <Image
                             src={frontImg}
@@ -66,18 +69,19 @@ const HeroV2 = () => {
                     </div>
                 </motion.div>
             </div>
+
+            {/* Right Text */}
             <motion.div
                 initial={{ x: '100%', opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8, ease: 'easeInOut' }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
             >
-                <h2 className='text-7xl text-white font-bold uppercase'>designer
-                </h2>
-                <p className='text-end text-2xl  text-white '>
+                <h2 className='text-7xl text-white font-bold uppercase'>designer</h2>
+                <p className='text-end text-2xl text-white'>
                     Senior UI UX Designer - Lead, Web & <br /> Mobile App Design Specialist
                 </p>
             </motion.div>
-        </section >
+        </section>
     );
 };
 

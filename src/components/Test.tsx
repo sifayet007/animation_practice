@@ -59,6 +59,7 @@ const HeroV3 = () => {
                 </motion.div>
                 <div className="absolute inset-0 backface-hidden">
             </div>
+            </div>
         </section>
     );
 };
