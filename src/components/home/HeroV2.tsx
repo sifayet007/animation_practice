@@ -11,10 +11,9 @@ const HeroV2 = () => {
         offset: ["start end", "end start"],
     });
 
-    const y = useTransform(scrollY, [0, 700], [0, 700]);
-    const x = useTransform(scrollY, [0, 700], [0, 500]);
-    const rotateY = useTransform(scrollYProgress, [0, 1], [0, 360]);
-
+    const y = useTransform(scrollY, [0, 1280], [0, 1280]);
+    const x = useTransform(scrollY, [0, 400], [0, 400]);
+    const rotateY = useTransform(scrollY, [0, 1280], [0, 360]);
     return (
         <section
             ref={ref}
@@ -76,7 +75,7 @@ const HeroV2 = () => {
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1.2, ease: 'easeInOut' }}
             >
-                <h2 className='text-7xl text-white font-bold uppercase'>designer</h2>
+                <h2 className='text-7xl text-end text-white font-bold uppercase'>designer</h2>
                 <p className='text-end text-2xl text-white'>
                     Senior UI UX Designer - Lead, Web & <br /> Mobile App Design Specialist
                 </p>
