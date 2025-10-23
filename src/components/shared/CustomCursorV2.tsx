@@ -5,7 +5,7 @@ type CursorProps = {
     size?: number;
 };
 
-const CustomCursorV2: React.FC<CursorProps> = ({ size = 50 }) => {
+const CustomCursorV2: React.FC<CursorProps> = ({ size = 20 }) => {
     const cursorRef = useRef<HTMLDivElement>(null);
     const requestRef = useRef<number>(0);
 
@@ -75,31 +75,23 @@ const CustomCursorV2: React.FC<CursorProps> = ({ size = 50 }) => {
 
     return (
         <div
+            className="bg-secondary fixed rounded-full mix-blend-difference z-[9999] flex justify-centerq items-center cursor-none pointer-events-none"
+
             ref={cursorRef}
             style={{
-                position: "fixed",
                 left: cursorPos.x,
                 top: cursorPos.y,
                 width: size,
                 height: size,
-                borderRadius: "50%",
-                backgroundColor: color,
-                pointerEvents: "none",
                 transform: `translate(-50%, -50%) scale(${scale})`,
-                mixBlendMode: "difference",
                 transition: "background-color 0.3s ease, transform 0.2s ease",
-                zIndex: 9999,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                fontSize: "12px",
-                fontWeight: "bold",
-                color: "#fff",
             }}
         >
             {/* Optional inner text or icon */}
-            <span>👆</span>
+
         </div>
+
+
     );
 };
 

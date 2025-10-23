@@ -1,7 +1,7 @@
 "use client";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import TransitionsLink from "../animation/TransitionsLink";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -72,14 +72,15 @@ const Navbar = () => {
             >
               <div className="flex text-white/80 gap-x-6 font-medium">
                 {navItems.map((item) => (
-                  <Link key={item.name} href={item.path}>
+                  <TransitionsLink key={item.name} href={item.path}>
                     {item.name}
-                  </Link>
+                  </TransitionsLink>
                 ))}
               </div>
+              <TransitionsLink href="/contact">
               <button className="bg-white py-2 px-6 rounded-full text-black/80 font-medium hover:bg-gray-100 transition">
                 Contact
-              </button>
+                </button></TransitionsLink> 
             </motion.div>
           ) : (
             <motion.div

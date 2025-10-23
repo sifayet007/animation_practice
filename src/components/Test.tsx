@@ -20,7 +20,7 @@ const HeroV3 = () => {
     return (
         <section
             ref={ref}
-            className="max-w-[1320px] mx-auto h-[200vh] flex items-center justify-center bg-gray-950"
+            className="max-w-[1320px] mx-auto  flex items-center justify-center bg-gray-950"
         >
             <div className="relative w-[350px] h-[480px] perspective-1500">
                 <motion.div

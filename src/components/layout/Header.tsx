@@ -78,6 +78,7 @@ const Header = () => {
                                     </Link>
                                 ))}
                             </motion.div>
+                            <Link href="/contact">
                             <motion.button
                                 layout
                                 transition={{
@@ -90,6 +91,8 @@ const Header = () => {
                             >
                                 Contact
                             </motion.button>
+
+                            </Link>
                         </motion.div>
                     ) : (
                         <motion.div
