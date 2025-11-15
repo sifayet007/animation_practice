@@ -1,11 +1,14 @@
 import RevealLink from "@/components/animation/RevealLink";
+import ScrollLinked from "@/components/animation/ScrollLinked";
 import FlipLinkButton from "@/components/button/Button";
 import { Fm } from "@/components/fm";
 import AboutMe from "@/components/home/AboutMe";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import Hero from "@/components/home/Hero";
+import Hero2 from "@/components/home/Hero2";
 import HeroSpotlight from "@/components/home/HeroSpotlight";
 import HeroV2 from "@/components/home/HeroV2";
+import HeroV4 from "@/components/home/HeroV4";
 import Marquee from "@/components/home/Marquee";
 import MarqueeV2 from "@/components/home/MarqueeV2";
 import Testimonials from "@/components/home/Testimonials";
@@ -20,6 +23,9 @@ import { FaCarSide } from "react-icons/fa6";
 export default function Home() {
   return (
     <div className="">
+      {/* <ScrollLinked /> */}
+      {/* <HeroV4 /> */}
+      {/* <Hero2 /> */}
       <HeroV2 />
       <WhatICanDo />
       <AboutMe />

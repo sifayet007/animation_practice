@@ -31,7 +31,7 @@ const HeroV2 = () => {
                 // transition={{ duration: 1.2, ease: 'easeInOut' }}
             >
                 <Reveal width="100%">
-                    <span className="text-3xl uppercase text-white font-semibold">  Nazrul Islam Raihan</span>
+                    <span className="text-3xl uppercase text-white font-semibold">Sifayet ullah</span>
                 </Reveal>
                 <Reveal width="100%">
                     <h2 className="text-7xl font-bold uppercase text-white">digital</h2>
