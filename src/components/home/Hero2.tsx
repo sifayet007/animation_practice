@@ -5,6 +5,7 @@ import AnimationButton from "../animation/Button";
 
 
 const Hero2 = () => {
+    const [open, setOpen] = useState(false)
     const texts = ["Hello", "Welcome", "Sifayet", "Framer Motion 🚀"];
     const [index, setIndex] = useState(0);
     useEffect(() => {
@@ -16,6 +17,32 @@ const Hero2 = () => {
     return (
         <section>
             <div className='h-screen w-full main-container'>
+
+
+                <motion.div
+                    layout
+                    transition={{
+                        duration: 0.2
+                    }}
+                    className="bg-white">
+
+                    <motion.button
+                        layout
+                        onClick={() => setOpen(!open)}
+                        transition={{ layout: { duration: 0.45, ease: "easeOut" } }}
+                        className="px-4 py-2 bg-blue-500 text-white rounded"
+                    >
+                        Toggle
+                    </motion.button>
+
+                    {open && (
+                        <motion.div
+                            layout
+                            transition={{ layout: { duration: 0.45, ease: "easeOut" } }}
+                            className="h-20 w-20 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-lg mt-3"
+                        />
+                    )}
+                </motion.div>
 
                 <motion.div
                     style={{

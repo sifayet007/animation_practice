@@ -25,7 +25,7 @@ export default function Home() {
     <div className="">
       {/* <ScrollLinked /> */}
       {/* <HeroV4 /> */}
-      {/* <Hero2 /> */}
+      <Hero2 />
       <HeroV2 />
       <WhatICanDo />
       <AboutMe />

@@ -23,13 +23,9 @@ const Reveal = ({ children, width = "fit-content", className }: RevealProps) => 
         >
 
             <motion.div
-                variants={{
-                    hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 },
-                }}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.5, delay: 0.25 }}
                 style={{
                     position: "relative",
@@ -41,13 +37,9 @@ const Reveal = ({ children, width = "fit-content", className }: RevealProps) => 
 
 
             <motion.div
-                variants={{
-                    hidden: { left: 0 },
-                    visible: { left: "100%" },
-                }}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
+                initial={{ left: 0 }}
+                whileInView={{ left: "100%" }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 style={{
                     position: "absolute",

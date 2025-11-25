@@ -32,15 +32,20 @@ const Navbar = () => {
 
   // Smooth layout transition for morphing
   const layoutTransition: any = {
-    type: " ",
-    stiffness: 120,
-    damping: 18,
+    type: "spring",
+    stiffness: 80,
+    damping: 40,
+
   };
 
   return (
     <motion.nav
       layout
-      transition={layoutTransition}
+      // transition={layoutTransition}
+      transition={{
+
+      }}
+
       className="bg-black/90 p-2 max-w-fit mx-auto flex items-center justify-between rounded-full fixed left-1/2 -translate-x-1/2 top-5 shadow-lg z-50 backdrop-blur-md space-x-5"
     >
       {/* Logo */}

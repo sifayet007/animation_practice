@@ -102,7 +102,6 @@ const MarqueeV2 = () => {
                     }
                 </motion.div>
             </div>
-
             <div className='flex  items-center'>
                 <motion.div
                     initial={{ x: '-100%' }}
